@@ -1,5 +1,5 @@
 #check if ran as root
-if [ "$EUID" -ne 0 ]
+if [ $(id -u) -ne 0 ];
   then (
     echo "Please run this script with sudo"
     echo "(this is to allow files to be moved to the correct install directories)"
@@ -7,19 +7,34 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+#Default values of arguements
+t_flag='6'
+
+#Extract arguements values
+while getopts 't:' flag; do
+  case "${flag}" in
+    t) t_flag="${OPTARG}" ;;
+    *) print_usage
+       exit 1 ;;
+  esac
+done
+
 #find start time for calcuation of elapsed time
 start=`date +%s.%N`
 
-#create build dir
-mkdir ./llvm_build
+# if directory does not exist create it
+if [ ! -d ./llvm_build ]; then
+  mkdir ./llvm_build
+fi
 
 #Generate a build for a release verison of llvm
-CXX=clang++ CC=clang cmake llvm -S ./llvm-project/llvm  -G Ninja \
+CXX=clang++ CC=clang cmake llvm -S ./llvm-project-fyp/llvm  -G Ninja \
     -B ./llvm_build -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_USE_LINKER=lld \
 
 #Run ninja within the build directory to build the llvm binary
-ninja -j 6 -C ./llvm_build/ install
+#Here we take the first arguement as the amount of threads
+ninja -j ${t_flag} -C ./llvm_build/ install
 
 #Calcuate total runtime
 end=`date +%s.%N`

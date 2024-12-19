@@ -1,5 +1,5 @@
 #check if ran as root
-if [ "$EUID" -ne 0 ]
+if [ $(id -u) -ne 0 ];
   then (
     echo "Please run this script with sudo"
     echo "(this is to allow files to be moved to the correct install directories)"
@@ -7,18 +7,33 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+#Default values of arguements
+t_flag='6'
+
+#Extract arguements values
+while getopts 't:' flag; do
+  case "${flag}" in
+    t) t_flag="${OPTARG}" ;;
+    *) print_usage
+       exit 1 ;;
+  esac
+done
+
 #find start time for calcuation of elapsed time
 start=`date +%s.%N`
 
-#create build dir
-mkdir ./clang_build
+# if directory does not exist create it
+if [ ! -d ./clang_build ]; then
+  mkdir ./clang_build
+fi
 
-CXX=clang++ CC=clang cmake -G Ninja -S ./llvm-project/clang -B ./clang_build \
+#Generate a build for a release version of clang
+CXX=clang++ CC=clang cmake -G Ninja -S ./llvm-project-fyp/clang -B ./clang_build \
       -DLLVM_USE_LINKER=lld \
       -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_TESTS=OFF \
 
 #Run ninja within the build directory to build the llvm binary
-ninja -j 6 -C ./clang_build/ install
+ninja -j ${t_flag} -C ./clang_build/ install
 
 #Calcuate total runtime
 end=`date +%s.%N`

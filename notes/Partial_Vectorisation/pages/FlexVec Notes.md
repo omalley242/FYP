@@ -1,0 +1,39 @@
+- ![FlexVec.pdf](../assets/FlexVec_1733067783490_0.pdf)
+-
+- # Notes
+- ((674c8d8d-2ed7-4bd1-afb2-5b9ba5b1a9bd))
+- Look into Scalar Expansion and Privatization
+-
+- ((674c8dc2-2a5b-4f17-94e6-041c48df794d))
+- Important stated performance increases with partial vectorization
+-
+- ((674c8e2e-6cd9-41dd-9f7b-a56b905d7836))
+- Code Example of Partially Vectorizable code
+-
+- ((674c8f14-11ee-4de1-9c66-7c594e4305cb))
+- Diagram showing two iterations of partially vectorized loops
+-
+- ((674c8f4f-c9c6-4b4d-92e0-a152f6db0061))
+- Types of loop that can be vectorized with this method
+-
+- ((674c9015-a586-4ceb-8fd9-0ff4101d16f8))
+- Mentions of SLP, worth looking into some papers on this
+-
+- ((674c9056-2d75-4ea0-b2a3-cf924183bf82))
+- Inspector / Executor paradigm is interesting and also work looking into
+-
+- ((674c90c4-a837-4e74-ac8c-3a51d39fef3a))
+- Using abstraction layers to enable vectorization, it is interesting but probably not super relevant
+-
+- ((674c90f8-3be8-4ca8-8837-af2a190d4ebb))
+- Really interesting hardware modification in which vectorization can be achieved via separating memory access and compute. But requires large changes to hardware designs
+-
+- ((674c919b-d7ef-48a2-9fcc-a939cb2c355c))
+- Methods of handling SCC's or cross interation dependency
+-
+- ((674c9250-8bed-4e94-81e0-4529f558a67b))
+- Second Code Example, could do with simplification when used for explanations.
+-
+-
+-
+- {{embed [[Useful Links]]}}
