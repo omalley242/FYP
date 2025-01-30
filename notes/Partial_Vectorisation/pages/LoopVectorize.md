@@ -1,0 +1,34 @@
+- Files Called By LoopVectorize
+-
+-
+- Analysis:
+- [[llvm/Analysis/AssumptionCache.h]]
+- [[llvm/Analysis/BasicAliasAnalysis.h]]
+- [[llvm/Analysis/BlockFrequencyInfo.h]]
+- [[llvm/Analysis/CFG.h]]
+- [[llvm/Analysis/CodeMetrics.h]]
+- [[llvm/Analysis/DemandedBits.h]]
+- [[llvm/Analysis/GlobalsModRef.h]]
+- [[llvm/Analysis/LoopAccessAnalysis.h]]
+- [[llvm/Analysis/LoopAnalysisManager.h]]
+- [[llvm/Analysis/LoopInfo.h]]
+- [[llvm/Analysis/LoopIterator.h]]
+- [[llvm/Analysis/OptimizationRemarkEmitter.h]]
+- [[llvm/Analysis/ProfileSummaryInfo.h]]
+- [[llvm/Analysis/ScalarEvolution.h]]
+- [[llvm/Analysis/ScalarEvolutionExpressions.h]]
+- [[llvm/Analysis/TargetLibraryInfo.h]]
+- [[llvm/Analysis/TargetTransformInfo.h]]
+- [[llvm/Analysis/ValueTracking.h]]
+- [[llvm/Analysis/VectorUtils.h]]
+-
+- Transforms:
+- [[llvm/Transforms/Utils/BasicBlockUtils.h]]
+- [[llvm/Transforms/Utils/InjectTLIMappings.h]]
+- [[llvm/Transforms/Utils/Local.h]]
+- [[llvm/Transforms/Utils/LoopSimplify.h]]
+- [[llvm/Transforms/Utils/LoopUtils.h]]
+- [[llvm/Transforms/Utils/LoopVersioning.h]]
+- [[lvm/Transforms/Utils/ScalarEvolutionExpander.h]]
+- [[llvm/Transforms/Utils/SizeOpts.h]]
+- [[llvm/Transforms/Vectorize/LoopVectorizationLegality.h]]

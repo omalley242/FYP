@@ -10,7 +10,7 @@ print_usage() {
   echo "[TYPES]"
   echo "full          Build both Clang and LLVM"
   echo "llvm          Build just LLVM"
-  echo "clang         Build Just Clang"
+  echo "clang         Build just Clang"
 }
 
 #check if ran as root
