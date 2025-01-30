@@ -1,2 +1,4 @@
 /source/*_build/**
 /source/llvm-project-fyp/**
+/source/tests/**/*.ll
+/source/tests/**/*.yaml

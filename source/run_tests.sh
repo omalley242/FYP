@@ -21,15 +21,21 @@ full() {
 }
 
 early() {
-    find ./tests/early-loop-termination/*/*.c -type f -print0 | xargs -P 8 -0 -I {} clang -cc1 -emit-llvm -O3 {}
+    run ./tests/early-loop-termination/
 }
 
 cond() {
-    find ./tests/conditional-scalar-update/*/*.c -type f -print0 | xargs -P 8 -0 -I {} clang -cc1 -O3 -emit-llvm {}
+    run ./tests/conditional-scalar-update/
 }
 
 cross() {
-    find ./tests/cross-iteration-dependacy/*/*.c -type f -print0 | xargs -P 8 -0 -I {} clang -cc1 -O3 -emit-llvm {}
+    run ./tests/cross-iteration-dependacy/ 
+}
+
+run() {
+    for i in $1**/*.c; do # Whitespace-safe and recursive
+        clang -S -fsave-optimization-record=yaml -O3 -emit-llvm $i -o "${i%.*}.ll"
+    done
 }
 
 #Default values of arguements
