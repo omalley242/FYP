@@ -29,12 +29,12 @@ cond() {
 }
 
 cross() {
-    run ./tests/cross-iteration-dependacy/ 
+    run ./tests/cross-iteration-dependacy/
 }
 
 run() {
     for i in $1**/*.c; do # Whitespace-safe and recursive
-        clang -S -fsave-optimization-record=yaml -O3 -emit-llvm $i -o "${i%.*}.ll"
+        clang -S -g -fsave-optimization-record=yaml -O3 -emit-llvm $i -o "${i%.*}.ll"
     done
 }
 
@@ -51,7 +51,7 @@ while getopts 't:' flag; do
 done
 
 # Check which build type and run the correct sub-scripts
-case "${t_flag}" in 
+case "${t_flag}" in
   full) full;;
   early) early;;
   cond)  cond;;
