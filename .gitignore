@@ -2,3 +2,4 @@
 /source/llvm-project-fyp/**
 /source/tests/**/*.ll
 /source/tests/**/*.yaml
+/source/benchmarks/llvm-test-suite/**
