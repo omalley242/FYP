@@ -3,3 +3,4 @@
 /source/tests/**/*.ll
 /source/tests/**/*.yaml
 /source/benchmarks/llvm-test-suite/**
+/source/scripts/script_venv/**
