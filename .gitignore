@@ -1,6 +1,6 @@
-/source/*_build/**
-/source/llvm-project-fyp/**
-/source/tests/**/*.ll
-/source/tests/**/*.yaml
-/source/benchmarks/llvm-test-suite/**
-/source/scripts/script_venv/**
+/src/*_build/**
+/src/llvm-project-fyp/**
+/src/tests/**/*.ll
+/src/tests/**/*.yaml
+/src/benchmarks/llvm-test-suite/**
+/src/scripts/script_venv/**
