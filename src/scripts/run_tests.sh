@@ -1,3 +1,5 @@
+#!/bin/bash
+    
 # Function to print the correct usage of this script
 print_usage() {
   echo "Usage:"
@@ -21,15 +23,15 @@ full() {
 }
 
 early() {
-    run ./tests/early-loop-termination/
+    run ../tests/early-loop-termination/
 }
 
 cond() {
-    run ./tests/conditional-scalar-update/
+    run ../tests/conditional-scalar-update/
 }
 
 cross() {
-    run ./tests/cross-iteration-dependacy/
+    run ../tests/cross-iteration-dependacy/
 }
 
 run() {

@@ -1,3 +1,5 @@
+#!/bin/bash
+    
 # Function to print the correct usage of this script
 print_usage() {
   echo "Usage:"

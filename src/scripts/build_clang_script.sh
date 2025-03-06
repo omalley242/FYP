@@ -1,3 +1,5 @@
+#!/bin/bash
+    
 #check if ran as root
 if [ $(id -u) -ne 0 ];
   then (
@@ -23,18 +25,17 @@ done
 start=`date +%s.%N`
 
 # if directory does not exist create it
-if [ ! -d ./llvm_build ]; then
-  mkdir ./llvm_build
+if [ ! -d ../clang_build ]; then
+  mkdir ../clang_build
 fi
 
-#Generate a build for a release verison of llvm
-CXX=clang++ CC=clang cmake llvm -S ./llvm-project-fyp/llvm  -G Ninja \
-    -B ./llvm_build -DCMAKE_BUILD_TYPE=Release \
-    -DLLVM_USE_LINKER=lld \
+#Generate a build for a release version of clang
+CXX=clang++ CC=clang cmake -G Ninja -S ../llvm-project-fyp/clang -B ../clang_build \
+      -DLLVM_USE_LINKER=lld \
+      -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_TESTS=OFF \
 
 #Run ninja within the build directory to build the llvm binary
-#Here we take the first arguement as the amount of threads
-ninja -j ${t_flag} -C ./llvm_build/ install
+ninja -j ${t_flag} -C ../clang_build/ install
 
 #Calcuate total runtime
 end=`date +%s.%N`
