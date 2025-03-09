@@ -3,5 +3,5 @@
 /src/tests/**/*.ll
 /src/tests/**/*.yaml
 /src/benchmarks/llvm-test-suite/**
-/src/benchmarks/llvm-suite-build/**
+/src/benchmarks/test-suite-build/**
 /src/scripts/script_venv/**
