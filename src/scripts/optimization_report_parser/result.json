@@ -1,0 +1,151 @@
+{
+  "passed": {
+    "inline": {
+      "Inlined": 265762,
+      "AlwaysInline": 60996
+    },
+    "licm": {
+      "Hoisted": 251865,
+      "PromoteLoopAccessesToScalar": 12313,
+      "InstSunk": 4300
+    },
+    "loop-idiom": {
+      "ProcessLoopStoreOfLoopLoad": 367,
+      "ProcessLoopStridedStore": 3923
+    },
+    "tailcallelim": {
+      "tailcall-recursion": 329,
+      "tailcall-readnone": 872
+    },
+    "slp-vectorizer": {
+      "VectorizedList": 2935,
+      "StoresVectorized": 24120,
+      "VectorizedHorizontalReduction": 360
+    },
+    "loop-delete": {
+      "Invariant": 8168,
+      "NeverExecutes": 46
+    },
+    "gvn": {
+      "LoadElim": 59259,
+      "LoadPRE": 17422
+    },
+    "argpromotion": {
+      "ArgumentRemoved": 2359,
+      "ArgumentPromoted": 2765
+    },
+    "instcombine": {
+      "simplify-libcalls": 13
+    },
+    "loop-vectorize": {
+      "Vectorized": 19419,
+      "Interleaved": 4
+    },
+    "deadargelim": {
+      "ArgumentRemoved": 194,
+      "ReturnValueRemoved": 188
+    },
+    "TTI": {
+      "DontUnroll": 77564
+    },
+    "loop-unroll": {
+      "Peeled": 1048,
+      "FullyUnrolled": 7593,
+      "PartialUnrolled": 19190
+    },
+    "lower-matrix-intrinsics": {
+      "matrix-lowered": 40
+    }
+  },
+  "missed": {
+    "inline": {
+      "NeverInline": 215975,
+      "NoDefinition": 150268,
+      "TooCostly": 43896
+    },
+    "slp-vectorizer": {
+      "UnsupportedType": 81,
+      "NotPossible": 166487,
+      "HorSLPNotBeneficial": 9615,
+      "NotBeneficial": 80676
+    },
+    "loop-vectorize": {
+      "MissedDetails": 52403,
+      "InterleavingNotBeneficial": 1994,
+      "VectorizationNotBeneficial": 1994
+    },
+    "sdagisel": {
+      "FastISelFailure": 13
+    },
+    "shrink-wrap": {
+      "UnsupportedIrreducibleCFG": 18
+    },
+    "gvn": {
+      "LoadClobbered": 2521442
+    },
+    "licm": {
+      "LoadWithLoopInvariantAddressCondExecuted": 21373,
+      "LoadWithLoopInvariantAddressInvalidated": 750160
+    },
+    "loop-idiom": {
+      "LoopMayAccessLoad": 233,
+      "SizeStrideUnequal": 49,
+      "LoopMayAccessStore": 258
+    },
+    "regalloc": {
+      "SpillReloadCopies": 57911,
+      "LoopSpillReloadCopies": 61567
+    }
+  },
+  "anaylsis": {
+    "asm-printer": {
+      "InstructionCount": 92061,
+      "InstructionMix": 992662
+    },
+    "prologepilog": {
+      "StackSize": 92061
+    },
+    "loop-vectorize": {
+      "PotentiallyFaultingEarlyExitLoop": 1782,
+      "UncountableEarlyExitLoopsDisabled": 161,
+      "CantVectorizeInstruction": 16216,
+      "CantVersionLoopWithOptForSize": 39,
+      "CantIdentifyArrayBounds": 2527,
+      "CantComputeNumberOfIterations": 24365,
+      "InterleavingNotBeneficialAndDisabled": 3,
+      "NoInductionVariable": 2083,
+      "VectorizationNotBeneficial": 4,
+      "VectorMixedPrecision": 134,
+      "CFGNotUnderstood": 15,
+      "NoIntegerInductionVariable": 16,
+      "ValueUsedOutsideLoop": 21,
+      "UnknownLoopCountComplexCFG": 5,
+      "CantVectorizeStore": 32,
+      "NonSimpleLoad": 100,
+      "EarlyExitNotLatchPredecessor": 23194,
+      "UnsafeDep": 608,
+      "CantCheckMemDepsAtRunTime": 1,
+      "UnknownLatchExitCountEarlyExitLoop": 56,
+      "CantVectorizeLibcall": 15054,
+      "LoopContainsUnsupportedTerminator": 1074,
+      "RecurrencesInEarlyExitLoop": 2148,
+      "TooManyUncountableEarlyExits": 7764,
+      "InterleavingBeneficialButDisabled": 8,
+      "FYP": 38322,
+      "NonReductionValueUsedOutsideLoop": 24514,
+      "WritesInEarlyExitLoop": 2167,
+      "AllDisabled": 1679,
+      "EarlyExitTooManySuccessors": 954,
+      "UnsafeOperationsEarlyExitLoop": 88,
+      "NoCFGForSelect": 7610,
+      "CantVectorizeInstructionReturnType": 1412,
+      "InterleavingNotBeneficial": 9255,
+      "CantVectorizeStoreToLoopInvariantAddress": 11,
+      "LoopContainsUnsupportedSwitch": 550,
+      "NoTailLoopWithOptForSize": 9
+    },
+    "": {
+      "NonReductionValueUsedOutsideLoop": 16
+    }
+  }
+}

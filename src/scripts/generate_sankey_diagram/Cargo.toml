@@ -1,0 +1,11 @@
+[package]
+name = "generate_sankey_diagram"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.31", features = ["derive"] }
+sankey = "0.1.2"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+svg = "^0.10.0"
