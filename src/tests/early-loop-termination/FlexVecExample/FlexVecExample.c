@@ -1,7 +1,8 @@
+#include <stdint.h>
+
 int benchmark() {
 
     //Declerations
-    int pos=0;
     int max_pos=64;
     int cand;
     int mcost;
@@ -22,7 +23,7 @@ int benchmark() {
     mv[32] = -1;
 
     //Loop under test
-    for( ; pos < max_pos; pos++){
+    for(int32_t pos = 0; pos < max_pos; pos++){
         cand = spiral_srch[pos];
         mcost = mv[cand];
         if (mcost < min_mcost){

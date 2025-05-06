@@ -26,4 +26,4 @@ RUN sudo apt -y install ninja-build && \
     sudo apt -y install clang
 
 #Copy the source files from the repo into opt dir
-COPY ./source /opt/
+COPY ./src /opt/

@@ -30,9 +30,15 @@ if [ ! -d ../llvm_build ]; then
 fi
 
 #Generate a build for a release verison of llvm
-CXX=clang++ CC=clang cmake llvm -S ../llvm-project-fyp/llvm  -G Ninja \
-    -B ../llvm_build -DCMAKE_BUILD_TYPE=Release \
+CC="`which ccache` /usr/bin/clang" CXX="`which ccache` /usr/bin/clang++"  cmake llvm -S ../llvm-project-fyp/llvm  -G Ninja \
+    -B ../llvm_build -DCMAKE_BUILD_TYPE=Debug \
+    -DLLVM_TARGETS_TO_BUILD="X86;AArch64" \
     -DLLVM_USE_LINKER=lld \
+    -DLLVM_BUILD_LLVM_DYLIB=ON \
+    -DLLVM_CCACHE_BUILD=ON \
+    -DLLVM_LINK_LLVM_DYLIB=ON \
+    -DLLVM_OPTIMIZED_TABLEGEN=ON \
+
 
 #Run ninja within the build directory to build the llvm binary
 #Here we take the first arguement as the amount of threads
@@ -41,5 +47,5 @@ ninja -j ${t_flag} -C ../llvm_build/ install
 #Calcuate total runtime
 end=`date +%s.%N`
 runtime=$( echo "$end - $start" | bc -l )
-echo "\n==== Total Clang Build Time ====" 
+echo "\n==== Total LLVM Build Time ====" 
 echo "\t$runtime s"

@@ -7,3 +7,6 @@
 [submodule "src/benchmarks/llvm-test-suite"]
 	path = src/benchmarks/llvm-test-suite
 	url = https://github.com/llvm/llvm-test-suite
+[submodule "src/qemu"]
+	path = src/qemu
+	url = https://github.com/qemu/qemu.git

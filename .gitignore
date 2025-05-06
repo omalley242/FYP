@@ -8,3 +8,4 @@
 /src/scripts/optimization_report_parser/target/
 /src/**/target/
 /src/scripts/generate_sankey_diagram/*.svg
+/src/qemu/**
