@@ -34,7 +34,7 @@ CC="`which ccache` /usr/bin/clang" CXX="`which ccache` /usr/bin/clang++" cmake -
       -DLLVM_USE_LINKER=lld \
       -DCMAKE_BUILD_TYPE=Debug \
       -DLLVM_INCLUDE_TESTS=OFF \
-      -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" \
+      -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;clang-tools-extra;lld" \
       -DCLANG_ENABLE_NEW_PASS_MANAGER=ON \
       -DLLVM_ENABLE_ASSERTIONS=ON \
       -DLLVM_BUILD_LLVM_DYLIB=ON \

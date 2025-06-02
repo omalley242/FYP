@@ -1,0 +1,9 @@
+digraph "Call graph: ../tests/early-loop-termination/FlexVecExample/FlexVecExample.ll" {
+	label="Call graph: ../tests/early-loop-termination/FlexVecExample/FlexVecExample.ll";
+
+	Node0x5591e868c6c0 [shape=record,label="{benchmark}"];
+	Node0x5591e868c6c0 -> Node0x5591e867dd30;
+	Node0x5591e868c6c0 -> Node0x5591e868c340;
+	Node0x5591e867dd30 [shape=record,label="{llvm.lifetime.start.p0}"];
+	Node0x5591e868c340 [shape=record,label="{llvm.lifetime.end.p0}"];
+}
