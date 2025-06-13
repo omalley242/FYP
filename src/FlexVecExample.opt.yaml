@@ -1,0 +1,200 @@
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 31, Column: 16 }
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                       Line: 19, Column: 35 }
+...
+--- !Passed
+Pass:            licm
+Name:            InstSunk
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 35, Column: 19 }
+Function:        main
+Args:
+  - String:          'sinking '
+  - Inst:            trunc
+    DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                       Line: 35, Column: 19 }
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InvalidCost
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 18, Column: 5 }
+Function:        main
+Args:
+  - String:          'Recipe with invalid costs prevented vectorization at VF=(vscale x 1): <Invalid operator> '
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InvalidCost
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 19, Column: 35 }
+Function:        main
+Args:
+  - String:          'Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficialAndDisabled
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 18, Column: 5 }
+Function:        main
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial and is explicitly disabled or interleave count is set to 1
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 18, Column: 5 }
+Function:        main
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: vscale x 4
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InvalidCost
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 22, Column: 5 }
+Function:        main
+Args:
+  - String:          'Recipe with invalid costs prevented vectorization at VF=(vscale x 1): <Invalid operator> '
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InvalidCost
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 23, Column: 22 }
+Function:        main
+Args:
+  - String:          'Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficialAndDisabled
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 22, Column: 5 }
+Function:        main
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial and is explicitly disabled or interleave count is set to 1
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 22, Column: 5 }
+Function:        main
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: vscale x 4
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            ''
+Name:            TooManyUncountableEarlyExits
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 30, Column: 5 }
+Function:        main
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Cannot vectorize early exit loop with more than one early exit
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 30, Column: 5 }
+Function:        main
+Args:
+  - String:          loop not vectorized
+  - String:          ' (Force='
+  - Force:           'true'
+  - String:          ', Vector Width='
+  - VectorWidth:     vscale x 4
+  - String:          ', Interleave Count='
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Failure
+Pass:            transform-warning
+Name:            FailedRequestedVectorization
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 30, Column: 5 }
+Function:        main
+Args:
+  - String:          'loop not vectorized: the optimizer was unable to perform the requested transformation; the transformation might be disabled or specified as part of an unsupported transformation ordering'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 18, Column: 5 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 18, Column: 5 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 19, Column: 35 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 22, Column: 5 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 22, Column: 5 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...
+--- !Passed
+Pass:            tailcallelim
+Name:            tailcall-readnone
+DebugLoc:        { File: './tests/early-loop-termination/FlexVecExample/FlexVecExample.c', 
+                   Line: 23, Column: 22 }
+Function:        main
+Args:
+  - String:          'marked as tail call candidate (readnone)'
+...

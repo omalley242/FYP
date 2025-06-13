@@ -10,3 +10,6 @@
 [submodule "src/qemu"]
 	path = src/qemu
 	url = https://github.com/qemu/qemu.git
+[submodule "src/phoronix-test-suite"]
+	path = src/phoronix-test-suite
+	url = https://github.com/phoronix-test-suite/phoronix-test-suite

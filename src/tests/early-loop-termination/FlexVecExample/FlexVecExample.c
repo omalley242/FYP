@@ -1,4 +1,4 @@
-int benchmark() {
+int main() {
 
     //Declerations
     int pos=0;
@@ -23,7 +23,7 @@ int benchmark() {
         mv[mv_index] = mv_index;
     }
 
-    mv[32] = -1;
+    mv[36] = -1;
 
     // Pragma to force vectorization (when cost model says not worth)
     #pragma clang loop vectorize_width(4, scalable) interleave_count(4)

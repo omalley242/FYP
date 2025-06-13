@@ -115,6 +115,8 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "*.inc": "cpp",
-        "*.def": "cpp"
-    }
+        "*.def": "cpp",
+        "ctype.h": "c"
+    },
+    "cmake.sourceDirectory": "/home/omalley242/University/FYP/src/benchmarks/llvm-test-suite/Bitcode/Benchmarks"
 }
